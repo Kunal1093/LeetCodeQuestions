@@ -14,7 +14,7 @@
 class Solution {
     public int firstUniqChar(String s) {
         //Create a HashMap
-		HashMap<Character,Integer> hm = new HashMap<Character,Integer>();
+	HashMap<Character,Integer> hm = new HashMap<Character,Integer>();
         int i=0;
 		
         for(char ch :s.toCharArray()){
