@@ -32,7 +32,7 @@ class Solution {
     }
     public boolean isPowerOfTwo(int n) {
         // Run only first time.
-		if(hs.isEmpty())
+	if(hs.isEmpty())
             addValues();
 			
         if(n < 0)
