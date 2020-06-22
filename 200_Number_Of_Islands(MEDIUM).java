@@ -1,4 +1,4 @@
-/********************
+/*************************
 200. Number of Islands
 
 Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
@@ -20,16 +20,17 @@ Input:
 00100
 00011
 Output: 3
-********************/
+*************************/
 class Solution {
     public int numIslands(char[][] grid) {
         if(grid == null)
             return 0;
+        
         int count =0;
         for(int i=0;i<grid.length;i++){
             for(int j=0;j<grid[0].length;j++){
-                if(grid[i][j] != '0'){
-                    recurIsland(grid,i,j);
+                if(grid[i][j] == '1'){
+                    traverseIsland(grid,i,j);
                     count++;
                 }
             }
@@ -37,14 +38,15 @@ class Solution {
         return count;
     }
     
-    public void recurIsland(char[][] grid,int x,int y){
-        if(x<0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] != '1')
+    public void traverseIsland(char grid[][],int x,int y){
+        if(x < 0 || y < 0 || x >= grid.length || y >= grid[0].length || grid[x][y] != '1'){
             return;
-        
+        }
         grid[x][y] = '0';
-        recurIsland(grid,x+1,y);
-        recurIsland(grid,x-1,y);
-        recurIsland(grid,x,y+1);
-        recurIsland(grid,x,y-1);
+        
+        traverseIsland(grid,x+1,y);
+        traverseIsland(grid,x-1,y);
+        traverseIsland(grid,x,y+1);
+        traverseIsland(grid,x,y-1);
     }
 }
